@@ -33,7 +33,7 @@ export class DataserviceProvider {
     let path = '/userProfile/' +userid + '/notes/';
     //create a path to store notes under the current user's profile
     //write the note object using its created string as a key (leave child blank and firebase will auto generate an id)
-    firebase.database().ref(path).child( <string> note.created).set(note);
+    firebase.database().ref(path).child( <string><any> note.created).set(note);
   }
   updateNote(data,userid,callback){
     let notedata = {title: data.title, note: data.text, created: data.created }
